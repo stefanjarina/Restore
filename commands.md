@@ -2,6 +2,8 @@
 
 ## Create projects
 
+### .NET
+
 ```ps
 cd backend
 
@@ -9,6 +11,12 @@ dotnet new sln -n ReStore
 
 dotnet new webapi -o API
 dotnet sln add API
+```
+
+### React
+
+```ps
+npx create-react-app frontend --template typescript --use-npm
 ```
 
 ## Set up database

@@ -1,8 +1,13 @@
-import { Container, createTheme, CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/system';
-import Catalog from '../../features/catalog/Catalog';
-import Header from './Header';
 import { useState } from 'react';
+import { Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/system';
+import { Container, createTheme, CssBaseline } from '@mui/material';
+import Header from './Header';
+import Catalog from '../../features/catalog/Catalog';
+import HomePage from '../../features/home/HomePage';
+import ProductDetails from '../../features/catalog/ProductDetails';
+import AboutPage from '../../features/about/AboutPage';
+import ContactPage from '../../features/contact/ContactPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,7 +32,11 @@ function App() {
       <CssBaseline />
       <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
       <Container>
-        <Catalog />
+        <Route path="/" component={HomePage} exact={true} />
+        <Route path="/catalog" component={Catalog} exact={true} />
+        <Route path="/catalog/:id" component={ProductDetails} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/contact" component={ContactPage} />
       </Container>
     </ThemeProvider>
   );

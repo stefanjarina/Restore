@@ -3,7 +3,12 @@
 ## Create projects
 
 ```ps
-TODO
+cd backend
+
+dotnet new sln -n ReStore
+
+dotnet new webapi -o API
+dotnet sln add API
 ```
 
 ## Set up database

@@ -13,10 +13,18 @@ dotnet sln add API
 
 ## Set up database
 
+- `dotnet-ef` tool is needed
+
+```ps
+dotnet tool install --global dotnet-ef --version 6.0.1
+# -or-
+dotnet tool update --global dotnet-ef --version 6.0.1
+```
+
 ### Prepare migrations
 
 ```ps
-TODO
+dotnet ef migrations add InitialCreate -o Data/Migrations
 ```
 
 ### Create database
@@ -30,5 +38,5 @@ Several options here:
 #### manually using dotnet-ef tool
 
 ```ps
-TODO
+dotnet ef database update
 ```

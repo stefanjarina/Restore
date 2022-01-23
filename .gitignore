@@ -1,6 +1,7 @@
 ####### CUSTOM
 
 snippets.txt
+store.db
 
 ################
 # Created by https://www.gitignore.io/api/node,react,rider,linux,macos,windows,dotnetcore,webstorm+all,visualstudio,visualstudiocode

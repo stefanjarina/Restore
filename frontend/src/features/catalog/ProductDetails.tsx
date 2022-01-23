@@ -12,6 +12,8 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import agent from '../../app/api/agent';
+import { error } from 'console';
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -19,10 +21,9 @@ export default function ProductDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/products/${id}`)
-      .then(response => setProduct(response.data))
-      .catch(err => console.log(err))
+    agent.Catalog.details(parseInt(id))
+      .then(product => setProduct(product))
+      .catch(error => console.log(error))
       .finally(() => setLoading(false));
   }, [id]);
 

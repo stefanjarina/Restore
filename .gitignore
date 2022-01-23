@@ -1,8 +1,9 @@
 ####### CUSTOM
 
 snippets.txt
-store.db
-
+store.db*
+store.db-shm
+store.db-wal
 ################
 # Created by https://www.gitignore.io/api/node,react,rider,linux,macos,windows,dotnetcore,webstorm+all,visualstudio,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=node,react,rider,linux,macos,windows,dotnetcore,webstorm+all,visualstudio,visualstudiocode

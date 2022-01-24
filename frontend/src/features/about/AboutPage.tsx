@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import agent from '../../app/api/agent';
-import { error } from 'console';
 
 export default function AboutPage() {
   const [validationErrors, setValidationErrors] = useState<string[]>([]);

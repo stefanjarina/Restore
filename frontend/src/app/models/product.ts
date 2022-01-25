@@ -13,7 +13,7 @@ export interface ProductParams {
   orderBy: string;
   pageSize: number;
   pageNumber: number;
+  types: string[];
+  brands: string[];
   searchTerm?: string;
-  types?: string[];
-  brands?: string[];
 }

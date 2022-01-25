@@ -114,7 +114,7 @@ export default function BasketPage() {
       </TableContainer>
       <Grid container>
         <Grid item xs={6} />
-        <Grid item xs={6}>
+        <Grid item xs={6} sx={{ mb: 2 }}>
           <BasketSummary />
           <Button
             component={Link}

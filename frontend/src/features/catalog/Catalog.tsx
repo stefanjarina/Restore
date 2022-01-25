@@ -12,12 +12,14 @@ import {
   Typography,
 } from '@mui/material';
 import { useEffect } from 'react';
+import RadioButtonGroup from '../../app/components/RadioButtonGroup';
 import LoadingComponent from '../../app/layout/LoadingComponent';
 import { useAppSelector, useAppDispatch } from '../../app/store/configureStore';
 import {
   fetchFilters,
   fetchProductsAsync,
   productSelectors,
+  setProductParams,
 } from './catalogSlice';
 import ProductList from './ProductList';
 import ProductSearch from './ProductSearch';
@@ -30,8 +32,14 @@ const sortOptions = [
 
 export default function Catalog() {
   const products = useAppSelector(productSelectors.selectAll);
-  const { filtersLoaded, productsLoaded, status, brands, types } =
-    useAppSelector(state => state.catalog);
+  const {
+    filtersLoaded,
+    productsLoaded,
+    status,
+    brands,
+    types,
+    productParams,
+  } = useAppSelector(state => state.catalog);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -52,18 +60,13 @@ export default function Catalog() {
           <ProductSearch />
         </Paper>
         <Paper sx={{ mb: 2, p: 2 }}>
-          <FormControl>
-            <RadioGroup>
-              {sortOptions.map(({ value, label }) => (
-                <FormControlLabel
-                  key={value}
-                  value={value}
-                  control={<Radio />}
-                  label={label}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
+          <RadioButtonGroup
+            selectedValue={productParams.orderBy}
+            options={sortOptions}
+            onChange={e =>
+              dispatch(setProductParams({ orderBy: e.target.value }))
+            }
+          />
         </Paper>
         <Paper sx={{ mb: 2, p: 2 }}>
           <FormGroup>

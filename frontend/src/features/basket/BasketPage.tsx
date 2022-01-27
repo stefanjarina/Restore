@@ -13,13 +13,13 @@ import {
   Typography,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import BasketSummary from './BasketSummary';
-import { currencyFormat } from '../../app/util/util';
 import { Link } from 'react-router-dom';
+import { currencyFormat } from '../../app/util/util';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
 import { addBasketItemAsync, removeBasketItemAsync } from './basketSlice';
+import { BasketSummary } from './BasketSummary';
 
-export default function BasketPage() {
+export const BasketPage = () => {
   const { basket, status } = useAppSelector(state => state.basket);
   const dispatch = useAppDispatch();
 
@@ -128,4 +128,4 @@ export default function BasketPage() {
       </Grid>
     </>
   );
-}
+};

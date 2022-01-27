@@ -11,18 +11,18 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import NotFound from '../../app/errors/NotFound';
-import LoadingComponent from '../../app/layout/LoadingComponent';
-import { currencyFormat } from '../../app/util/util';
 import { LoadingButton } from '@mui/lab';
+import { currencyFormat } from '../../app/util/util';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
 import {
   addBasketItemAsync,
   removeBasketItemAsync,
 } from '../basket/basketSlice';
 import { productSelectors, fetchProductAsync } from './catalogSlice';
+import { NotFound } from '../../app/errors/NotFound';
+import { LoadingComponent } from '../../app/layout/LoadingComponent';
 
-export default function ProductDetails() {
+export const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { basket, status } = useAppSelector(state => state.basket);
   const { status: productStatus } = useAppSelector(state => state.catalog);
@@ -141,4 +141,4 @@ export default function ProductDetails() {
       </Grid>
     </Grid>
   );
-}
+};

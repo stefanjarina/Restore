@@ -12,7 +12,7 @@ import {
 import { useState } from 'react';
 import agent from '../../app/api/agent';
 
-export default function AboutPage() {
+export const AboutPage = () => {
   const [validationErrors, setValidationErrors] = useState<string[]>([]);
 
   function getValidationError() {
@@ -73,4 +73,4 @@ export default function AboutPage() {
       )}
     </Container>
   );
-}
+};

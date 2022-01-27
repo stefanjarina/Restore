@@ -9,8 +9,8 @@ import {
   Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Product } from '../../app/models/product';
 import { LoadingButton } from '@mui/lab';
+import { Product } from '../../app/models/product';
 import { currencyFormat } from '../../app/util/util';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
 import { addBasketItemAsync } from '../basket/basketSlice';
@@ -19,7 +19,7 @@ interface Props {
   product: Product;
 }
 
-export default function ProductCard({ product }: Props) {
+export const ProductCard = ({ product }: Props) => {
   const { status } = useAppSelector(state => state.basket);
   const dispatch = useAppDispatch();
 
@@ -71,4 +71,4 @@ export default function ProductCard({ product }: Props) {
       </CardActions>
     </Card>
   );
-}
+};

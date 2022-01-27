@@ -7,7 +7,7 @@ interface Props {
   onChange: (items: string[]) => void;
 }
 
-export default function CheckboxButtons({ items, checked, onChange }: Props) {
+export const CheckboxButtons = ({ items, checked, onChange }: Props) => {
   const [checkedItems, setCheckedItems] = useState(checked || []);
 
   function handleChecked(value: string) {
@@ -37,4 +37,4 @@ export default function CheckboxButtons({ items, checked, onChange }: Props) {
       ))}
     </FormGroup>
   );
-}
+};

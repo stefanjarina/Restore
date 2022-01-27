@@ -6,7 +6,7 @@ interface Props {
   onPageChange: (page: number) => void;
 }
 
-export default function AppPagination({ metaData, onPageChange }: Props) {
+export const AppPagination = ({ metaData, onPageChange }: Props) => {
   const { currentPage, totalCount, totalPages, pageSize } = metaData;
 
   function getItemRange() {
@@ -29,4 +29,4 @@ export default function AppPagination({ metaData, onPageChange }: Props) {
       />
     </Box>
   );
-}
+};

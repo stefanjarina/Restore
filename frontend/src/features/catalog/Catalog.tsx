@@ -1,9 +1,5 @@
 import { Grid, Paper } from '@mui/material';
 import { useEffect } from 'react';
-import AppPagination from '../../app/components/AppPagination';
-import CheckboxButtons from '../../app/components/CheckboxButtons';
-import RadioButtonGroup from '../../app/components/RadioButtonGroup';
-import LoadingComponent from '../../app/layout/LoadingComponent';
 import { useAppSelector, useAppDispatch } from '../../app/store/configureStore';
 import {
   fetchFilters,
@@ -12,8 +8,12 @@ import {
   setProductParams,
   setPageNumber,
 } from './catalogSlice';
-import ProductList from './ProductList';
-import ProductSearch from './ProductSearch';
+import { AppPagination } from '../../app/components/AppPagination';
+import { CheckboxButtons } from '../../app/components/CheckboxButtons';
+import { RadioButtonGroup } from '../../app/components/RadioButtonGroup';
+import { LoadingComponent } from '../../app/layout/LoadingComponent';
+import { ProductList } from './ProductList';
+import { ProductSearch } from './ProductSearch';
 
 const sortOptions = [
   { value: 'name', label: 'Alphabetical' },
@@ -21,7 +21,7 @@ const sortOptions = [
   { value: 'price', label: 'Price - Low to High' },
 ];
 
-export default function Catalog() {
+export const Catalog = () => {
   const products = useAppSelector(productSelectors.selectAll);
   const {
     filtersLoaded,
@@ -93,4 +93,4 @@ export default function Catalog() {
       </Grid>
     </Grid>
   );
-}
+};

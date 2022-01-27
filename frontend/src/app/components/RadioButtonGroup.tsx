@@ -11,11 +11,11 @@ interface Props {
   onChange: (event: any) => void;
 }
 
-export default function RadioButtonGroup({
+export const RadioButtonGroup = ({
   options,
   selectedValue,
   onChange,
-}: Props) {
+}: Props) => {
   return (
     <FormControl>
       <RadioGroup onChange={onChange} value={selectedValue}>
@@ -30,4 +30,4 @@ export default function RadioButtonGroup({
       </RadioGroup>
     </FormControl>
   );
-}
+};

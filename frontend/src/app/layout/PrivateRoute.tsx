@@ -11,7 +11,7 @@ interface Props extends RouteProps {
   component: ComponentType<RouteComponentProps<any>> | ComponentType<any>;
 }
 
-export default function PrivateRoute({ component: Component, ...rest }: Props) {
+export const PrivateRoute = ({ component: Component, ...rest }: Props) => {
   const { user } = useAppSelector(state => state.account);
   return (
     <Route
@@ -27,4 +27,4 @@ export default function PrivateRoute({ component: Component, ...rest }: Props) {
       }
     />
   );
-}
+};

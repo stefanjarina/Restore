@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import { useAppSelector } from '../store/configureStore';
-import SignInMenu from './SignInMenu';
+import { SignInMenu } from './SignInMenu';
 
 interface Props {
   darkMode: boolean;
@@ -45,7 +45,7 @@ const navStyles = {
   },
 };
 
-export default function Header({ darkMode, handleThemeChange }: Props) {
+export const Header = ({ darkMode, handleThemeChange }: Props) => {
   const { basket } = useAppSelector(state => state.basket);
   const { user } = useAppSelector(state => state.account);
 
@@ -106,4 +106,4 @@ export default function Header({ darkMode, handleThemeChange }: Props) {
       </Toolbar>
     </AppBar>
   );
-}
+};

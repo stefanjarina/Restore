@@ -4,7 +4,7 @@ import { signOut } from '../../features/account/accountSlice';
 import { clearBasket } from '../../features/basket/basketSlice';
 import { useAppDispatch, useAppSelector } from '../store/configureStore';
 
-export default function SignInMenu() {
+export const SignInMenu = () => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector(state => state.account);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -36,4 +36,4 @@ export default function SignInMenu() {
       </Menu>
     </>
   );
-}
+};

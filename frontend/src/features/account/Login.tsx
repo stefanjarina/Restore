@@ -12,7 +12,7 @@ import { LoadingButton } from '@mui/lab';
 import { useAppDispatch } from '../../app/store/configureStore';
 import { signInUser } from './accountSlice';
 
-export default function Login() {
+export const Login = () => {
   const history = useHistory();
   const location = useLocation<any>();
   const dispatch = useAppDispatch();
@@ -91,4 +91,4 @@ export default function Login() {
       </Box>
     </Container>
   );
-}
+};

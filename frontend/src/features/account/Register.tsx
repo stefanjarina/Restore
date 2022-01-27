@@ -12,7 +12,7 @@ import { LoadingButton } from '@mui/lab';
 import agent from '../../app/api/agent';
 import { toast } from 'react-toastify';
 
-export default function Register() {
+export const Register = () => {
   const history = useHistory();
   const {
     register,
@@ -124,4 +124,4 @@ export default function Register() {
       </Box>
     </Container>
   );
-}
+};

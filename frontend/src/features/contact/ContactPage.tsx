@@ -2,7 +2,7 @@ import { Button, ButtonGroup, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
 import { decrement, increment } from './counterSlice';
 
-export default function ContactPage() {
+export const ContactPage = () => {
   const dispatch = useAppDispatch();
   const { data, title } = useAppSelector(state => state.counter);
 
@@ -32,4 +32,4 @@ export default function ContactPage() {
       </ButtonGroup>
     </>
   );
-}
+};

@@ -6,10 +6,10 @@ import {
   TableRow,
   TableCell,
 } from '@mui/material';
-import { useAppSelector } from '../../app/store/configureStore';
 import { currencyFormat } from '../../app/util/util';
+import { useAppSelector } from '../../app/store/configureStore';
 
-export default function BasketSummary() {
+export const BasketSummary = () => {
   const { basket } = useAppSelector(state => state.basket);
 
   const subtotal =
@@ -48,4 +48,4 @@ export default function BasketSummary() {
       </TableContainer>
     </>
   );
-}
+};

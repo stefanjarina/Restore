@@ -1,5 +1,4 @@
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -7,20 +6,26 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Paper } from '@mui/material';
-import { Link } from 'react-router-dom';
-import agent from '../../app/api/agent';
+import { Link, useHistory } from 'react-router-dom';
 import { FieldValues, useForm } from 'react-hook-form';
 import { LoadingButton } from '@mui/lab';
+import { useAppDispatch } from '../../app/store/configureStore';
+import { signInUser } from './accountSlice';
 
 export const Login = () => {
+  const history = useHistory();
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
-    formState: { isSubmitting },
-  } = useForm();
+    formState: { isSubmitting, errors, isValid },
+  } = useForm({
+    mode: 'all',
+  });
 
   async function submitForm(data: FieldValues) {
-    await agent.Account.login(data);
+    await dispatch(signInUser(data));
+    history.push('/catalog');
   }
 
   return (
@@ -50,7 +55,9 @@ export const Login = () => {
           label="Username"
           autoComplete="username"
           autoFocus
-          {...register('username')}
+          error={!!errors.username}
+          helperText={errors?.username?.message}
+          {...register('username', { required: 'Username is required' })}
         />
         <TextField
           margin="normal"
@@ -58,11 +65,14 @@ export const Login = () => {
           label="Password"
           type="password"
           autoComplete="current-password"
-          {...register('password')}
+          error={!!errors.password}
+          helperText={errors?.password?.message}
+          {...register('password', { required: 'Password is required' })}
         />
         <LoadingButton
           loading={isSubmitting}
           type="submit"
+          disabled={!isValid}
           fullWidth
           variant="contained"
           sx={{ mt: 3, mb: 2 }}>
